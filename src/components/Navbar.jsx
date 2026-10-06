@@ -76,7 +76,8 @@ export default function Navbar() {
           open ? 'grid-rows-[1fr] border-t border-navy/10' : 'grid-rows-[0fr]'
         }`}
       >
-        <ul className="min-h-0 space-y-1 px-5 pb-5 pt-3" {...(!open && { inert: '' })}>
+        <div className="min-h-0 overflow-hidden">
+        <ul className="space-y-1 px-5 pb-5 pt-3" {...(!open && { inert: '' })}>
           {links.map((l) => (
             <li key={l.id}>
               <a href={`#${l.id}`} onClick={() => setOpen(false)} className={`block py-2 ${linkClass(l.id)}`}>
@@ -88,6 +89,7 @@ export default function Navbar() {
             <Button href={CV_URL} icon={Download} className="w-full" download>Download CV</Button>
           </li>
         </ul>
+        </div>
       </div>
     </header>
   )
